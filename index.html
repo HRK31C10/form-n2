@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="style.css">
+      <title>Cadastro</title>
+  </head>
+  <body>
+      <div class="container" >
+          <a class="links" id="paracadastro"></a>
+          <a class="links" id="paralogin"></a>
+          
+          <div class="content">      
+            <!--FORMULÁRIO DE LOGIN-->
+            <div id="login">
+              <form method="post" action="coneccao_cadastro.php"> 
+                <img class="logo_atlas" src="logo-atlas.png" alt="">
+                <h1>LOGIN</h1> 
+                <div> 
+                  <label for="email_login">E-mail</label>
+                  <input id="email_login" name="email_login" required="required" type="text" placeholder="luiz.augusto@gmail.com"/>
+                </div>
+                
+                <div> 
+                  <label for="senha_login">Senha</label>
+                  <input id="senha_login" name="senha_login" required="required" type="password" placeholder="123456" /> 
+                </div>
+                
+                <div> 
+                  <input type="checkbox" name="manterlogado" id="manterlogado" value="" style="position: relative; margin-left: -200px; margin-top: 10px;" /> 
+                  <label for="manterlogado" style="margin-left: -197px;">Continuar logado</label>
+                </div>
+                
+                <div> 
+                  <input type="submit" value="Logar" /> 
+                </div>
+                
+                <div class="link">
+                  Ainda não tem conta?
+                  <a href="#paracadastro">Cadastre-se</a>
+                </div>
+              </form>
+            </div>
+      
+            <!--FORMULÁRIO DE CADASTRO-->
+            <div id="cadastro">
+              <form method="post" action="coneccao_cadastro.php"> 
+                <img class="logo_atlas" src="logo-atlas.png" alt="">
+                
+                <div class="registro">CADASTRO</div>
+
+                <div class="titulodados">DADOS PESSOAIS:</div>
+                <div> 
+                    <label for="email_cad">E-mail:</label>
+                    <input id="email_cad" name="email_cad" required="required" type="email" placeholder="luiz.augusto@gmail.com"/> 
+                </div>
+                <div> 
+                    <label for="senha_cad">Defina Uma Senha:</label>
+                    <input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="123456"/>
+                </div>
+                <div> 
+                    <label for="senha_cad">Confirme a Senha:</label>
+                    <input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="123456"/>
+                </div>
+                <div> 
+                  <label for="nome_cad">Nome Completo:</label>
+                  <input id="nome_cad" name="nome_cad" required="required" type="text" placeholder="Luiz Augusto" />
+                </div>
+                <div> 
+                    <label for="cpf">CPF:</label>
+                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14" required>
+                </div>
+                <div>
+                  <label for="dtnasc">Data Nascimento:</label>
+                  <input type="date" id="dtnasc" name="dtnasc">
+                </div>
+                <div>
+                  <div class="sexo">Sexo:</div>
+                  <label for="sexo-m" style="font-size: 14px; position: relative; margin-left: 20px;">Masculino</label><br>
+                  <input type="radio" id="sexo-m" name="sexo" value="Masculino" style="position: relative; top: -17px;"><br>
+                  <label for="sexo-f" style="font-size: 14px; position: relative; margin-left: 20px;">Feminino</label><br>
+                  <input type="radio" id="sexo-f" name="sexo" value="Feminino" style="position: relative; top: -17px;"><br>
+                  <label for="ninformar" style="font-size: 14px; position: relative; margin-left: 20px;">Prefiro não informar</label><br>
+                  <input type="radio" id="ninformar" name="sexo" value="Prefiro não informar" style="position: relative; top: -17px;">
+                </div>
+                
+                <div class="titulocontato">CONTATO:</div>
+
+                <div>
+                    <label for="fone">Telefone:</label>
+                    <input type="tel" id="fone" name="fone"required pattern="[0-9]({2}) [0-9]{5}- [0-9]{4}" placeholder=" 11 99999-9999" maxlength="11">
+                </div>
+                <div>
+                    <label for="fone">Telefone Para Emergência:</label>
+                    <input type="tel" id="fone_emer" name="fone_emer"required pattern="[0-9]({2}) [0-9]{5}- [0-9]{4}" placeholder=" 11 99999-9999" maxlength="11">
+                </div>
+                <div>
+                    <label>CEP:
+                        <input name="cep" type="text" id="cep"class="cep" vale="" size="10" maxlength="9" onblur="pesquisacep(this.value)" />
+                    </label> 
+                </div>
+                <div>
+                    <label>Rua:
+                        <input name="rua" type="text" id="rua" size="60" disabled>
+                    </label>
+                </div>   
+                <div>
+                    <label>N°:
+                        <input name="num" type="text" id="num" size="60" disable>
+                    </label>
+                </div>
+                <div>
+                    <label>Bairro:
+                        <input name="bairro" type="text" id="bairro" size="40" disable>
+                    </label>  
+                </div>
+                <div class="titulosaude">SAÚDE E OBJETIVOS:</div>
+                <div> 
+                    <label for="">Histórico de Saúde:</label>
+                    <input id="hist_sau" name="hist_sau" required="required" type="text" placeholder="Doenças crônicas, Alergias, Lesões recentes e etc" />
+                </div>
+                <div> 
+                    <label for="">Objetivos:</label>
+                    <input id="obj_sau" name="obj_sau" required="required" type="text" placeholder="Emagrecer, Ganhar massa, Melhorar a saúde e etc" />
+                </div>    
+                <div>
+                    <label>Nível de Atividade Fisíca:</label>
+                    <div class="nvl_fisica">
+                        <select name="nvl_fisico" id="nvl_fisico" required="required" style="height: 40px; width: 440px;border-radius: 3px; border-color: black;">
+                            <option value="">Escolha uma opção</option>
+                            <option value="sedentário">Sedentário</option>
+                            <option value="moderado">Moderado</option>
+                            <option value="ativo">Ativo</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                  <label for="peso">Peso (kg):</label>
+                  <input id="peso" name="peso" required="required" type="number" step="any" placeholder="Digite seu peso" oninput="calcularIMC()" />
+                </div>
+                <div>
+                  <label for="altura">Altura (m):</label>
+                  <input id="altura" name="altura" required="required" type="number" step="any" placeholder="Digite sua altura" oninput="calcularIMC()" />
+                </div>
+                <div>
+                  <label for="imc">IMC (Índice de Massa Corporal):</label>
+                  <input id="imc" name="imc" type="text" placeholder="Veja seu IMC" readonly />
+                </div>
+                <div class="titulosaude">AGENDE SUA AVALIAÇÃO FÍSICA:</div>
+                <div> 
+                    <label for="avaliacao">Data da Avaliação Fisíca:</label>
+                    <input type="date" name="avaliacao" id="avaliacao" required="required"/>
+                </div>
+                <div>
+                    <label for="hora-desejada">Hora Desejada:</label>
+                    <input type="time" id="hora_desejada" name="hora_desejada"required>
+                </div>  
+                <div class="titulopref">PREFERÊNCIAS E HORÁRIOS:</div>
+                <label for="modalidades" id="modalidades">Modalidades de Interesse:</label>
+                    <div class="checkbox-group"><br>
+                        <div class="musculacao" style="display: flex; align-items: center;">
+                          <label for="musculacao" style="font-size: 14px; margin-left: 20px; margin-top: 1px;">Musculação</label>
+                          <input type="checkbox" id="musculacao" name="modalidades" value="Musculação" style="position: relative;margin-left: -298px;">
+                        </div>
+                        <div class="pilates" style="display: flex; align-items: center;">
+                          <label for="pilates" style="font-size: 14px; margin-left: 20px;margin-top: 1px;">Pilates</label>
+                          <input type="checkbox" id="pilates" name="modalidades" value="Pilates" style="position: relative;margin-left: -265px;">
+                        </div>
+                        <div class="danca" style="display: flex; align-items: center;">
+                          <label for="danca" style="font-size: 14px; margin-left: 20px; margin-top: 1px;">Dança</label>
+                          <input type="checkbox" id="danca" name="modalidades" value="Dança" style="position: relative;margin-left: -263px;">
+                        </div>
+                        <div class="natacao" style="display: flex; align-items: center;">
+                          <label for="natacao" style="font-size: 14px; margin-left: 20px; margin-top: 1px;">Natação</label>
+                          <input type="checkbox" id="natacao" name="modalidades" value="Natação" style="position: relative;margin-left: -275px;">
+                        </div>
+                        <div class="lutas" style="display: flex; align-items: center;">
+                          <label for="lutas" style="font-size: 14px; margin-left: 20px; margin-top: 1px;">Lutas</label>
+                          <input type="checkbox" id="lutas" name="modalidades" value="Lutas" style="position: relative;margin-left: -257px;">
+                        </div>
+                    </div>
+                  <div>
+                    <br>
+                    <label for="hora_pref">Dias e Horários:</label>
+                    <div class="checknox-group" style="margin-top: 15px;">
+                        <div class="segunda" style="display: flex; align-items: center;">
+                          <label for="segunda" style="font-size: 14px; margin-left: 20px; margin-top: 1px;">Segunda-Feira</label>
+                          <input type="checkbox" id="segunda" name="hora_pref" value="Segunda-feira" style="position: relative;margin-left: -315px;">
+                        </div>
+                        <div class="terca" style="display: flex; align-items: center;">
+                          <label for="terca" style="font-size: 14px; margin-left: 20px; margin-top: 15px;">Terça-Feira</label>
+                          <input type="checkbox" id="terca" name="hora_pref" value="Terca-feira" style="position: relative;margin-left: -293px; margin-top: 15px;">
+                        </div> 
+                        <div class="quarta" style="display: flex; align-items: center;">
+                          <label for="quarta" style="font-size: 14px; margin-left: 20px; margin-top: 1px;">Quarta-Feira</label>
+                          <input type="checkbox" id="quarta" name="hora_pref" value="Quarta-feira" style="position: relative;margin-left: -301px;">
+                        </div> 
+                        <div class="quinta" style="display: flex; align-items: center;">
+                          <label for="quinta" style="font-size: 14px; margin-left: 20px; margin-top: 1px;">Quinta-Feira</label>
+                          <input type="checkbox" id="quinta" name="hora_pref" value="Quinta-feira" style="position: relative;margin-left: -300px;">
+                        </div> 
+                        <div class="sexta" style="display: flex; align-items: center;">
+                          <label for="sexta" style="font-size: 14px; margin-left: 20px; margin-top: 1px;">Sexta-Feira</label>
+                          <input type="checkbox" id="sexta" name="hora_pref" value="Sexta-feira" style="position: relative;margin-left: -294px;">
+                        </div> 
+                        <div class="sabado" style="display: flex; align-items: center;">
+                          <label for="sabado" style="font-size: 14px; margin-left: 20px; margin-top: 1px;">Sábado</label>
+                          <input type="checkbox" id="sabado" name="hora_pref" value="Sabado" style="position: relative;margin-left: -270px;">
+                        </div> 
+                        <div class="domingo" style="display: flex; align-items: center;">
+                          <label for="domingo" style="font-size: 14px; margin-left: 20px; margin-top: 1px;">Domingo</label>
+                          <input type="checkbox" id="domingo" name="hora_pref" value="Domingo" style="position: relative;margin-left: -278px;">
+                        </div>              
+                    </div>
+                    <br>
+                    <div>
+                      <label for="hora-pref">Horário Preferido:</label>
+                      <input type="time" id="hora_pref" name="hora_pref" required>
+                    </div>
+                    <button class="slv" onclick="mostrarPreferencias()">SALVAR</button>
+                  <div class="prefsel" style="margin-top: 20px;">PREFERÊNCIAS SELECIONADAS:</div>
+                    <div id="resultado" style="margin-top: 20px;">
+                      <p id="modalidades" style="color: #b3e706;">Modalidades:<br><span id="modalidades-texto" style="color: white;">Nenhuma modalidade selecionada</span></p><br>
+                      <p id="dias-selecionados" style="color: #b3e706;">Dias:<br><span id="dias-texto" style="color: white;">Nenhum dia selecionado</span></p><br>
+                      <p id="horario-selecionado" style="color: #b3e706;">Horário:<br><span id="horario-texto" style="color: white;">Nenhum horário selecionado</span></p>
+                    </div>
+                  </div>
+                  <br>
+                  <div>
+                    <div class="plano">PLANOS:</div><br>
+                      <input type="radio" id="mensal" name="plano" value= "Mensal">
+                      <label for="mensal" style="margin-right: 20px;">Mensal</label>
+                      <input type="radio" id="trimestral" name="plano" value="Trimestral">
+                      <label for="trimestral" style="margin-right: 20px;">Trimestral</label>
+                      <input type="radio" id="anual" name="plano" value="Anual">
+                      <label for="anual" style="margin-right: 20px;"">Anual</label>
+                  </div>
+                  <div>
+                    <div class="formapagto" style="margin-top: 30px;">FORMAS DE PAGAMENTO:</div><br>
+                    <select name="formapagto" required="required" style="height: 40px; width: 440px;border-radius: 3px; border-color: black;">
+                        <option value="">Escolha uma opção</option>
+                        <option value="cartaodecredito">Cartão de Crédito</option>
+                        <option value="cartaodedebito">Cartão de Débito</option>
+                        <option value="boleto">Boleto</option>
+                        <option value="pix">PIX</option>
+                    </select>
+                </div>
+                <div> 
+                  <input type="submit" value="Cadastrar"/> 
+                </div>
+                <div class="link">  
+                  Já tem conta?
+                  <a href="#paralogin"> Login </a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div> 
+  </body>
+</html>
+
+<script>
+    document.getElementById('cpf').addEventListener('input', function (e) {
+        let value = e.target.value.replace(/\D/g, ''); 
+        if (value.length > 11) value = value.slice(0, 11); 
+
+        let formattedValue = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+        if (value.length <= 9) {
+            formattedValue = value.replace(/(\d{3})(\d{3})(\d{3})/, '$1.$2.$3');
+        }
+        if (value.length <= 6) {
+            formattedValue = value.replace(/(\d{3})(\d{3})/, '$1.$2');
+        }
+        if (value.length <= 3) {
+            formattedValue = value.replace(/(\d{3})/, '$1');
+        }
+        e.target.value = formattedValue;});
+
+        document.getElementById('fone').addEventListener('input', function (e) {
+        let value = e.target.value.replace(/\D/g, ''); 
+        
+        if (value.length > 11) value = value.slice(0, 11);
+
+        let formattedValue;
+        if (value.length > 6) {
+            formattedValue = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+        }
+        else if (value.length > 2) {
+            formattedValue = value.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+        }
+        else {
+            formattedValue = value.replace(/(\d{0,2})/, '($1');
+        }
+        e.target.value = formattedValue;
+         });
+
+         document.getElementById('fone_emer').addEventListener('input', function (e) {
+        let value = e.target.value.replace(/\D/g, ''); 
+        
+        if (value.length > 11) value = value.slice(0, 11);
+
+        let formattedValue;
+        if (value.length > 6) {
+            formattedValue = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+        }
+        else if (value.length > 2) {
+            formattedValue = value.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+        }
+        else {
+            formattedValue = value.replace(/(\d{0,2})/, '($1');
+        }
+        e.target.value = formattedValue;
+         });
+        
+        function calcularIMC() {
+        var peso = parseFloat(document.getElementById('peso').value);
+        var altura = parseFloat(document.getElementById('altura').value);
+
+        if (!isNaN(peso) && !isNaN(altura) && altura > 0) {
+
+            var imc = peso / (altura * altura);
+            document.getElementById('imc').value = imc.toFixed(2);
+        } else {
+            document.getElementById('imc').value = '';
+        }
+    }
+        function mostrarPreferencias() {
+        let modalidadesCheckboxes = document.querySelectorAll('input[name="modalidades"]:checked');
+        let modalidadesSelecionadas = [];
+        
+        modalidadesCheckboxes.forEach((checkbox) => {
+            modalidadesSelecionadas.push(checkbox.value);
+        });
+
+        let modalidadesTexto = modalidadesSelecionadas.length ? modalidadesSelecionadas.join(', ') : 'Nenhuma modalidade selecionada';
+        document.getElementById('modalidades-texto').innerText = modalidadesTexto;
+
+        let diasCheckboxes = document.querySelectorAll('input[name="hora-pref"]:checked');
+        let diasSelecionados = [];
+        
+        diasCheckboxes.forEach((checkbox) => {
+            diasSelecionados.push(checkbox.value);
+        });
+
+        let diasTexto = diasSelecionados.length ? diasSelecionados.join(', ') : 'Nenhum dia selecionado';
+        document.getElementById('dias-texto').innerText = diasTexto;
+
+        // Obtém o horário preferido
+        let horarioPreferido = document.getElementById('hora-pref').value;
+        let horarioTexto = horarioPreferido ? horarioPreferido : 'Nenhum horário selecionado';
+        document.getElementById('horario-texto').innerText = horarioTexto;
+    }
+
+      document.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        setTimeout(function() {
+            document.querySelector('.content').scrollIntoView({ behavior: 'smooth' });
+        }, 300); // Tempo para esperar a animação terminar, ajuste conforme necessário
+      });
+  });
+function limpa_formulário_cep() {
+        //Limpa valores do formulário de cep.
+        document.getElementById('rua').value=("");
+        document.getElementById('bairro').value=("");
+}
+
+function meu_callback(conteudo) {
+    if (!("erro" in conteudo)) {
+        //Atualiza os campos com os valores.
+        document.getElementById('rua').value=(conteudo.logradouro);
+        document.getElementById('bairro').value=(conteudo.bairro);
+    } //end if.
+    else {
+        //CEP não Encontrado.
+        limpa_formulário_cep();
+        alert("CEP não encontrado.");
+    }
+}
+
+function pesquisacep(valor) {
+
+    //Nova variável "cep" somente com dígitos.
+    var cep = valor.replace(/\D/g, '');
+
+    //Verifica se campo cep possui valor informado.
+    if (cep != "") {
+
+        //Expressão regular para validar o CEP.
+        var validacep = /^[0-9]{8}$/;
+
+        //Valida o formato do CEP.
+        if(validacep.test(cep)) {
+
+            document.getElementById('cep').value = cep.substring(0,5)
+            +"-"
+            +cep.substring(5);
+
+            //Preenche os campos com "..." enquanto consulta webservice.
+            document.getElementById('rua').value="...";
+            document.getElementById('bairro').value="...";
+
+            //Cria um elemento javascript.
+            var script = document.createElement('script');
+
+            //Sincroniza com o callback.
+            script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+            //Insere script no documento e carrega o conteúdo.
+            document.body.appendChild(script);
+
+        } //end if.
+        else {
+            //cep é inválido.
+            limpa_formulário_cep();
+            alert("Formato de CEP inválido.");
+        }
+    } //end if.
+    else {
+        //cep sem valor, limpa formulário.
+        limpa_formulário_cep();
+    }
+};
+</script>

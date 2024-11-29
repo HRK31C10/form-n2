@@ -1,0 +1,272 @@
+*, *:before, *:after { 
+    margin:0;
+    padding:0;
+    font-family: Arial,sans-serif;
+  }
+
+  body{
+    margin:10px;
+  }
+  
+  a{
+    text-decoration: none;
+  }
+  
+  a.links{
+    display: none;
+  }
+  
+  .content{
+    width: 500px;
+    margin: 0px auto;
+    position: relative;	
+  }
+  
+  h1{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: -50px;
+    color: white;
+  }
+
+  .registro {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: -50px;
+    color: white;
+  }
+
+  .titulodados, .titulocontato, .titulosaude, .titulopref, .plano, .formapagto{
+    font-weight: bold;
+    color: #b3e706;
+  }
+
+  .prefsel{
+    font-weight: bold;
+    color: white;
+  }
+
+  .slv{
+    margin-left: 365px;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #b3e706;
+    color: black;
+    font-weight: bold
+  }
+
+  .slv:hover {
+    color: white; /* Cor do texto ao passar o mouse */
+  }
+  
+  .sexo{
+    padding-bottom: 10px;
+    color: white;
+  }
+
+  .nvl_fisica{
+    padding: 10px; 
+    border-radius: 5px;
+    margin-top: 0px;
+    margin-left: -10px;
+  }
+  
+  h1:after{
+    content: ' ';
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin-top: 10px;
+  }
+  
+  div{
+    margin-bottom:15px;
+  }
+
+  div:first-child{
+    margin: 0px;
+  }
+
+  label{
+    color: white;
+    position: relative;
+  }
+  
+   ::-webkit-input-placeholder  {
+    color: #bebcbc; 
+    font-style: italic;
+  }
+
+  input:-moz-placeholder,
+  textarea:-moz-placeholder{
+    color: #bebcbc;
+    font-style: italic;
+  }
+
+  input {
+    outline: none;
+  }
+  
+  input:not([type="radio"]){
+    width: 95%;
+    padding: 10px;	
+    border: 1px solid black;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+  }
+
+  input[type="submit"]{
+    width: 100%!important;
+    cursor: pointer;	
+    background: #b3e706; 
+    padding: 8px 5px;
+    color: rgb(0, 0, 0); /*preto*/
+    font-size: 20px;	
+    border: 1px solid black;	
+    margin-bottom: 10px;	
+    text-shadow: 0 1px 1px #000000;   
+    -webkit-border-radius: 5px;
+    border-radius: 5px;  
+    transition: all 0.2s linear;
+  }
+
+  input[type="submit"]:hover{
+    color: #fff;
+    background: #b3e706;
+    border: 1px solid black;
+  }
+
+  .link{
+    position: absolute;
+    background: #b3e706;
+    color: black;
+    left: 0px;
+    height: 20px;
+    width: 440px;
+    padding: 17px 30px 20px 30px;
+    font-size: 16px;
+    text-align: right;
+    border-top: 1px solid black;
+  
+    -webkit-border-radius: 0 0  5px 5px;
+    border-radius: 0 0  5px 5px;
+  }
+
+  .link a {
+    font-weight: bold;
+    background: #b3e706;
+    padding: 6px;
+    color: #000000; /*preto*/
+    margin-left: 10px;
+    border: 1px solid black;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;  
+    -webkit-transition: all 0.4s linear;
+    transition: all 0.4s  linear;
+  }
+
+  .link a:hover {
+    color: #ffff;
+    background: #b3e706;
+    border: 1px solid black;
+  }
+
+  .logo_atlas{
+    width: 300px;
+    margin-left: 65px;
+    margin-top: -60px;
+  }
+  
+  #cadastro, 
+  #login{
+    position: absolute;
+    top: 0px;
+    width: 88%;	
+    padding: 18px 6% 60px 6%;
+    margin: 0 0 35px 0;
+    background:rgb(78, 78, 78) ; /*preto*/
+    border: 3px solid rgb(0, 0, 0); 
+    border-radius: 5px;  
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: both;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+  }
+  
+  #paracadastro:target ~ .content #cadastro,
+  #paralogin:target ~ .content #login{
+    z-index: 2;
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft;
+    -webkit-animation-delay: .1s;
+    animation-delay: .1s;
+  }
+
+  #registro:target ~ .content #login,
+  #paralogin:target ~ .content #cadastro {
+    -webkit-animation-name: fadeOutLeft;
+    animation-name: fadeOutLeft;
+    position: relative; /* Garanta que o conteúdo não seja posicionado fora da tela */
+    top: 0; /* Certifique-se de que a posição seja mantida corretamente */
+    left: 0; /* Mesmo ajuste para manter no centro */
+    opacity: 0; /* Para sumir com suavidade */
+    transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out;
+}
+
+/* Garantir que o conteúdo seja visível após a animação */
+.content {
+    position: relative;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+  
+  @-webkit-keyframes fadeInLeft {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @-webkit-keyframes fadeOutLeft {
+    0% {
+      opacity: 1;
+      -webkit-transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translateX(-20px);
+    }
+  }
+  
+  @keyframes fadeOutLeft {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+  }
